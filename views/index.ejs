@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Subjects and Grades</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Subjects and Grades</h1>
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Grade</th>
+      </tr>
+      <% for(let subject of subjects) { %>
+        <tr>
+          <td><%= subject.name %></td>
+          <td><%= subject.grade %></td>
+        </tr>
+      <% } %>
+    </table>
+    <form action="/add-subject" method="post">
+      <label>
+        Subject:
+        <input type="text" id="subject" name="name" oninput="checkInput()">
+      </label>
+      <label>
+        Grade:
+        <input type="number" id="grades" name="grade" pattern="[0-9]+">
+      </label>
+      <button type="submit">Add Subject</button>
+    </form>
+    <form action="/calculator" method="post">
+      <button type="submit">calculator</button>
+    </form>
+    <script >
+      function checkInput() {
+        const subject_input = document.getElementsById("subject").value();
+        const grandeinput = document.getElementsByNameId("grades");
+        if (subject_input) {
+            grandeinput.required = true;
+        } else {
+            grandeinput.required = false;
+        }
+      }
+      </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Subjects and Grades</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Subjects and Grades</h1>
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Grade</th>
+      </tr>
+      <% for(let subject of subjects) { %>
+        <tr>
+          <td><%= subject.name %></td>
+          <td><%= subject.grade %></td>
+        </tr>
+      <% } %>
+    </table>
+    <form action="/add-subject" method="post">
+      <label>
+        Subject:
+        <input type="text" id="subject" name="name" oninput="checkInput()">
+      </label>
+      <label>
+        Grade:
+        <input type="text" id="grades" name="grade" oninput="checkInput()">
+      </label>
+      <button type="submit">Add Subject</button>
+    </form>
+    <form action="/calculator" method="post">
+      <button type="submit">calculator</button>
+    </form>
+    <script >
+      function checkInput() {
+        const subject_input = document.getElementById("subject").value;
+        const grade_input = document.getElementById("grades").value;
+        if (subject_input !== "" && grade_input !== "") {
+          document.getElementById("subject").required = true;
+          document.getElementById("grades").required = true;
+        } else {
+          document.getElementById("subject").required = false;
+          document.getElementById("grades").required = false;
+        }
+      }
+    </script>
+  </body>
+</html>
